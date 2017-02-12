@@ -1,5 +1,20 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+html, body, form, fieldset, table, tr, td, img, p {
+  margin: 0;
+  padding: 0;
+  font: 100%/150% Arial,helvetica,sans-serif;
 }
+
+input, button, select, textarea, optgroup, option {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+body {
+  background:
+    url('./img/rm-title-img.jpg') no-repeat top left fixed,
+    white;
+  background-size: cover;
+}
+

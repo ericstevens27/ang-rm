@@ -1,0 +1,53 @@
+<h1>{{title}}</h1>
+<div class="left">
+    <h2>My Heroes</h2>
+    <div>
+        <ul class="heroes">
+            <li *ngFor="let hero of heroes"
+                [class.selected]="hero === selectedHero"
+                (click)="onSelect(hero)">
+                <span class="badge">{{hero.id}}</span> {{hero.name}}: <b>{{hero.character}}</b>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="selectedHero" class="right">
+    <h2>{{selectedHero.name}}</h2>
+    <div>
+        <label>Weapon: </label>
+       <select [(ngModel)]="selectedHero.weapon">
+             <option *ngFor="let weapon of weapName" value= {{weapon.name}}>
+                {{weapon.name}}
+            </option>
+        </select>
+    </div>
+    <p class="note">
+        Fumble on unmodifed roll of <i><b>{{getWeapon(selectedHero.weapon).fumble}}</b></i> or less</p>
+    <div>
+        <label style="width: 10em; padding-top: 10px">Offense Roll: </label>
+        <input min=0 max=6 [(ngModel)]="selectedHero.off" placeholder="off"/>
+    </div>
+    <div>
+        <label style="width: 10em">Attack Table: </label>
+        <select [(ngModel)]="selectedHero.at">
+            <option *ngFor="let at of atList" value= {{at.id}}>
+                {{at.id}}
+            </option>
+        </select>
+    </div>
+    <div class="wideLabel">The combat results are:
+        <p class="wideLabelIndent">Hits: <b>{{combat[selectedHero.off-1][selectedHero.at-1].hits}}</b></p>
+        <p class="wideLabelIndent">Critical Level: <b>{{combat[selectedHero.off-1][selectedHero.at-1].critical_level}}</b></p>
+        <p class="wideLabelIndent">Critical Type: <b>{{combat[selectedHero.off-1][selectedHero.at-1].critical_type}}</b></p>
+    </div>
+
+    <div *ngIf="combat" class="debug">
+        <p><b>DEBUG</b></p>
+        <p>Checking how big the combat array is: <i>{{ combat.length }}</i></p>
+        <p *ngIf="combat.length < selectedHero.off">The Offense roll is too big!</p>
+        <p>The indicies to use are: <i>{{getWeapon(selectedHero.weapon).table}}[{{selectedHero.off-1}}][{{selectedHero.at-1}}]</i></p>
+    </div>
+
+</div>
+
