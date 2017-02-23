@@ -1,3 +1,10 @@
+# Install
+
+node
+mongodb
+typescript
+npm install -g typescript
+
 # ang-rm
 Rolemaster system using Angular
 
