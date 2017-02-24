@@ -2,7 +2,6 @@
 
 node
 mongodb
-typescript
 npm install -g typescript
 
 from src folder, do
