@@ -5,6 +5,10 @@ mongodb
 typescript
 npm install -g typescript
 
+from src folder, do
+
+npm install
+
 # ang-rm
 Rolemaster system using Angular
 
