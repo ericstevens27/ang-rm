@@ -5,7 +5,6 @@ import {HEROES} from './hero-list';
 import {WeaponNames} from './weapon-names';
 import {WEAPONS} from './weapon-names';
 import {Weapon} from './weapon';
-import {weaponList} from './weapon';
 import {CombatTable} from './combat-tables';
 import {MARTIAL_ARTS_STRIKING} from './combat-tables';
 
@@ -17,9 +16,9 @@ export class DataService {
     getWeaponNames(): WeaponNames[] {
         return WEAPONS;
     }
-    getWeapon(name: string): Weapon {
-        return weaponList[name];
-    }
+     getWeapon(name: string): Weapon {
+        return new Weapon();
+     }
     getCombatTable(ind1: number, ind2: number): CombatTable {
         return MARTIAL_ARTS_STRIKING[ind1][ind2];
     }

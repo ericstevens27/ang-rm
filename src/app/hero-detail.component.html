@@ -17,7 +17,7 @@
     <div>
         <label>Weapon: </label>
        <select [(ngModel)]="selectedHero.weapon">
-             <option *ngFor="let weapon of weapName" value= {{weapon.name}}>
+             <option *ngFor="let weapon of weapons" value="{{weapon.table}}" >
                 {{weapon.name}}
             </option>
         </select>
