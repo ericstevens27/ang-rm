@@ -43,4 +43,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/weapon/:id', function(req, res) {
+  var weapon_id = req.params.id;
+  res.sendfile('attack_tables/' + weapon_id + '.json' );
+});
+
+app.get('/weapon/', function(req, res) {
+  res.sendfile('attack_tables/weapons.json' );
+});
+
 module.exports = app;
