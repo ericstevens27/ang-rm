@@ -10,11 +10,35 @@ label {
   margin: 0 0;
   padding-left: 5px;
 }
+.atLabel {
+  display: inline-block;
+  width:6em;
+  margin: 0 0;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+.veryWide {
+  width: 40em;
+}
+.colWide {
+  width: 7em;
+  padding-top: 10px;
+}
 .wideLabelIndent {
   display: inline-block;
   width:12em;
   margin: 0 0;
   padding-left: 20px;
+}
+.Big {
+  font-size: 150%;
+  padding-top: .5rem
+}
+.small {
+  font-size: 80%;
+}
+.Red {
+  color: red;
 }
 .note {
   display: inline-block;
@@ -31,9 +55,9 @@ label {
 }
 input {
   height: 1.5em;
-  width:5em;
+  width:3em;
   font-size: 1em;
-  padding-left: .4em;
+  padding-left: 0;
 }
 button {
   margin-top: 20px;

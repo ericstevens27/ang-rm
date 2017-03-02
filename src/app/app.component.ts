@@ -32,8 +32,13 @@ export class AppComponent implements OnInit {
   weapName: WeaponNames[];
   combat = MARTIAL_ARTS_STRIKING;
   weapTable: Weapon;
+  attackValue = 0;
+  attackIndex = 0;
   atList = AT;
   selectedHero: Hero;
+  penalty = 0;
+  advantage = 0;
+  roll = 0;
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
@@ -46,9 +51,13 @@ export class AppComponent implements OnInit {
   getWeapon(name: string): Weapon {
       return this._dataService.getWeapon(name);
   }
-/*  getTable(ind1: number, ind2: number): CombatTable {
-    return this._dataService.getCombatTable(ind1, ind2);
-  }*/
+  onKey(event: any) { // without type info
+    this.attackValue = this.selectedHero.off - this.penalty - -this.advantage - -this.roll;
+    this.attackIndex = this.attackValue - 1;
+    if (this.attackIndex < 0) {this.attackIndex = 0};
+/*    console.log(this.attackValue);
+    console.log(this.attackIndex);*/
+  }
   ngOnInit(): void {
     this.getHeroes();
     this.getWeaponNames();
