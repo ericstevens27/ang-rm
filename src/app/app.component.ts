@@ -8,6 +8,7 @@ import { DataService } from './all.service';
 
 import {CombatTable} from './combat-tables';
 import {MARTIAL_ARTS_STRIKING} from './combat-tables';
+import { WeaponService } from './weapon.service';
 
 export class atNumbers {
   id: number;
@@ -25,11 +26,11 @@ const AT: atNumbers[] = [
 })
 export class AppComponent implements OnInit {
 
-  constructor(private _dataService: DataService) {}
+  constructor(private _dataService: DataService, private weaponService: WeaponService) {}
 
   title = 'Rolemaster Combat';
   heroes: Hero[];
-  weapName: WeaponNames[];
+  weapons: Weapon[];
   combat = MARTIAL_ARTS_STRIKING;
   weapTable: Weapon;
   attackValue = 0;
@@ -45,8 +46,9 @@ export class AppComponent implements OnInit {
   getHeroes(): void {
     this.heroes = this._dataService.getHeroes();
   }
-  getWeaponNames(): void {
-      this.weapName = this._dataService.getWeaponNames();
+  getWeapons(): void {
+    debugger;
+      this.weaponService.getWeapons().then(weapons => this.weapons);
   }
   getWeapon(name: string): Weapon {
       return this._dataService.getWeapon(name);
@@ -60,7 +62,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getHeroes();
-    this.getWeaponNames();
+    this.getWeapons();
   }
 
 }
