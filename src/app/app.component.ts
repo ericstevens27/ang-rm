@@ -41,7 +41,9 @@ export class AppComponent implements OnInit {
   advantage = 0;
   roll = 0;
   attackRow = 85;
-  attackType = 1
+  attackType = 1;
+  selectedWeapon: Weapon;
+  selectedWeaponDefault = 'Falchion';
 
   loadWeaponList() {
     this._dataService.getWeaponList().subscribe(data => this.weapons = data);
@@ -65,16 +67,19 @@ export class AppComponent implements OnInit {
   }
 
   onKey(event: any) { // without type info
-    this.attackValue = this.selectedHero.off - this.penalty - -this.advantage - -this.roll;
-    this.attackIndex = this.attackValue - 1;
+    this.attackIndex = this.selectedHero.off - this.penalty - -this.advantage - -this.roll;
     if (this.attackIndex < 0) {this.attackIndex = 0};
-/*    console.log(this.attackValue);
-    console.log(this.attackIndex);*/
+    if (this.attackIndex >150) {this.attackIndex = 150};
+  }
+  passIndex(event: any) { // without type info
+    console.log (this.selectedWeapon.weapon, this.selectedWeapon.table, this.selectedWeapon.fumble);
+    this.loadWeaponTable(this.selectedWeapon.table);
   }
   ngOnInit(): void {
     this.getHeroes();
     this.getWeapons();
     this.loadWeaponList();
+
   }
 
 }

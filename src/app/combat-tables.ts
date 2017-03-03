@@ -4,7 +4,7 @@ export class combatTable {
     critical_type: string;
 }
 
-export const MARTIAL_ARTS_STRIKING: CombatTable[][] =
+export const MARTIAL_ARTS_STRIKING: combatTable[][] =
     [
         [
             {
