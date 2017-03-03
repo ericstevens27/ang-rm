@@ -1,7 +1,46 @@
 <h1>{{title}}</h1>
 <div class="left">
     <h2>My Heroes</h2>
+
+  <div>
+    <!--<button (click)="loadWeaponList()">Load Weapon List</button>-->
+    <div *ngIf="weapons">
+      <p>Trying to get just a single weapon with index 1: Weapon Name: {{weapons[1].weapon}} Weapon Table:{{weapons[1].table}} Weapon Fumble: {{weapons[1].fumble}}</p>
+    </div>
     <div>
+      <ul class="weapons">
+        <li *ngFor="let w of weapons">
+          <span class="badge">{{w.weapon}}</span> fumble <= {{w.fumble}}, Weapon Table: [{{w.table}}]
+        </li>
+      </ul>
+    </div>
+  </div>
+<!--  <div style="width: 60em">
+  {{ weapons | json }}
+  </div>-->
+  <div *ngIf="weapons">
+    <button (click)="loadWeaponTable(weapons[1].table)">Load Weapon Table for {{weapons[1].weapon}}</button>
+        <div>
+          <div *ngIf="weapTable">
+            <p>Trying to get just a single weapon with index [{{attackRow}},{{attackType}}]:<br>
+              Hits: {{weapTable[attackRow][attackType].hits}}<br>
+              Critical Level: {{weapTable[85][5].critical_level}}<br>
+              Critical Type: {{weapTable[85][5].critical_type}}<br>
+            </p>
+          </div>
+          <template ngFor [ngForOf]="weapTable" let-w let-j="index">
+            <li class="weapons" *ngFor="let a of w; let i = index">
+              <span class="badge">{{j}}, {{i}} </span>Hits: {{a.hits}} Critical Level: {{a.critical_level}}, Critical Type: [{{a.critical_type}}]
+            </li>
+          </template>
+        </div>
+      </div>
+  </div>
+<!--  <div style="width: 60em" >
+    {{ weapTable | json }}
+  </div>-->
+
+<!--    <div>
         <ul class="heroes">
             <li *ngFor="let hero of heroes"
                 [class.selected]="hero === selectedHero"
@@ -10,8 +49,8 @@
             </li>
         </ul>
     </div>
-</div>
-
+</div>-->
+<!--
 <div *ngIf="selectedHero" class="right">
     <h2>{{selectedHero.name}}</h2>
     <div>
@@ -68,7 +107,7 @@
   <div class="wideLabel"    >
     <p class="Big veryWide">The attack result is: <b>{{attackValue}}</b></p>
     <p class="wideLabel small veryWide"><i>{{getWeapon(selectedHero.weapon).table}}[{{attackIndex}}][{{selectedHero.at-1}}]</i></p>
-    <!--<p class="wideLabelIndent"><b>Base: {{selectedHero.off}} Penalty: {{penalty}} Bonus: {{advantage}} Roll: {{roll}}</b></p>-->
+    &lt;!&ndash;<p class="wideLabelIndent"><b>Base: {{selectedHero.off}} Penalty: {{penalty}} Bonus: {{advantage}} Roll: {{roll}}</b></p>&ndash;&gt;
   </div>
     <div>
       <p class="note">The combat results are: </p>
@@ -100,12 +139,12 @@
         </div>
     </div>
 
-   <!-- <div *ngIf="combat" class="debug">
+   &lt;!&ndash; <div *ngIf="combat" class="debug">
         <p><b>DEBUG</b></p>
         <p>Checking how big the combat array is: <i>{{ combat.length }}</i></p>
         <p *ngIf="combat.length < selectedHero.off">The Offense roll is too big!</p>
         <p>The indicies to use are: <i>{{getWeapon(selectedHero.weapon).table}}[{{attackIndex}}][{{selectedHero.at-1}}]</i></p>
-    </div>-->
+    </div>&ndash;&gt;
 
-</div>
+</div>-->
 

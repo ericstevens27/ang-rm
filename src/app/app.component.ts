@@ -6,7 +6,7 @@ import { WeaponNames } from './weapon-names';
 import { Weapon } from './weapon';
 import { DataService } from './all.service';
 
-import {CombatTable} from './combat-tables';
+import {combatTable} from './combat-tables';
 import {MARTIAL_ARTS_STRIKING} from './combat-tables';
 import { WeaponService } from './weapon.service';
 
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   heroes: Hero[];
   weapons: Weapon[];
   combat = MARTIAL_ARTS_STRIKING;
-  weapTable: Weapon;
+  weapTable: combatTable[];
   attackValue = 0;
   attackIndex = 0;
   atList = AT;
@@ -40,6 +40,13 @@ export class AppComponent implements OnInit {
   penalty = 0;
   advantage = 0;
   roll = 0;
+  attackRow = 85;
+  attackType = 1
+
+  loadWeaponList() {
+    this._dataService.getWeaponList().subscribe(data => this.weapons = data);
+  }
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
@@ -47,12 +54,16 @@ export class AppComponent implements OnInit {
     this.heroes = this._dataService.getHeroes();
   }
   getWeapons(): void {
-    debugger;
+    // debugger;
       this.weaponService.getWeapons().then(weapons => this.weapons);
   }
-  getWeapon(name: string): Weapon {
-      return this._dataService.getWeapon(name);
+  loadWeaponTable(name: string) {
+      return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }
+  loadWeaponElement(toHit: number, at: number): combatTable {
+    return this.weapTable[toHit][at];
+  }
+
   onKey(event: any) { // without type info
     this.attackValue = this.selectedHero.off - this.penalty - -this.advantage - -this.roll;
     this.attackIndex = this.attackValue - 1;
@@ -63,6 +74,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
     this.getWeapons();
+    this.loadWeaponList();
   }
 
 }

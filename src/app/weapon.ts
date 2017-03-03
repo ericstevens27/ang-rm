@@ -1,7 +1,7 @@
 export class Weapon {
     fumble: number;
     table: string;
-    name: string;
+    weapon: string;
 }
 
 // export const weaponList =
