@@ -51,8 +51,6 @@ export class AppComponent implements OnInit {
   offense = 100;
   defense = 0;
   roll = 0;
-  selectedWeapon: Weapon;
-  getPullDownWeapon = "Bite";
 
 
   loadWeaponList() {
@@ -89,10 +87,6 @@ export class AppComponent implements OnInit {
     if (this.attackIndex < 0) {this.attackIndex = 0};
     if (this.attackIndex > 150) {this.attackIndex = 150};
   }
-  passIndex(event: any) { // without type info
-    console.log(this.selectedWeapon.table);
-    this.loadWeaponTable(this.selectedWeapon.table);
-  }
 
   getCritType(id: string) {
     return this.critList.filter(critList => critList.id === id)[0].name;
@@ -101,7 +95,7 @@ export class AppComponent implements OnInit {
     this.getHeroes();
     this.getWeapons();
     this.loadWeaponList();
-    this.selectedWeapon = {weapon: "Default", fumble: 0, table: "NOT_VALID"};
+
   }
 
 }
