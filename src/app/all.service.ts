@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-// import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 import {Hero} from './hero';
 import {HEROES} from './hero-list';
-/*import {WeaponNames} from './weapon-names';
+import {WeaponNames} from './weapon-names';
 import {WEAPONS} from './weapon-names';
 import {Weapon} from './weapon';
-import {combatTable} from './combat-tables';*/
+import {combatTable} from './combat-tables';
 
 @Injectable()
 export class DataService {

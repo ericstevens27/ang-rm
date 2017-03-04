@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { Hero } from './hero';
+import { Hero, heroWeapons } from './hero';
 import { Weapon } from './weapon';
 import { DataService } from './all.service';
 
@@ -11,6 +11,7 @@ import { WeaponService } from './weapon.service';
 export class atNumbers {
   id: number;
 }
+
 export class criticalTypes {
   id: string;
   name: string;
@@ -40,20 +41,32 @@ export class AppComponent implements OnInit {
   weapTable: combatTable[];
   attackIndex = 0;
   atList = AT;
+  attackType = 1;
   critList = critType;
   selectedHero: Hero;
+  heroWeapon: heroWeapons;
   penalty = 0;
   advantage = 0;
+  odSplit = 100;
+  offense = 100;
+  defense = 0;
   roll = 0;
   selectedWeapon: Weapon;
-  selectedWeaponDefault = 'Falchion';
+  getPullDownWeapon = "Bite";
+
 
   loadWeaponList() {
     this._dataService.getWeaponList().subscribe(data => this.weapons = data);
   }
 
   onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  this.selectedHero = hero;
+}
+  onSelectWeapon(wt: heroWeapons): void {
+    console.log(wt);
+    this.heroWeapon = wt;
+    console.log(this.heroWeapon);
+    this.loadWeaponTable(wt.table);
   }
   getHeroes(): void {
     this.heroes = this._dataService.getHeroes();
@@ -70,11 +83,14 @@ export class AppComponent implements OnInit {
   }*/
 
   onKey(event: any) { // without type info
-    this.attackIndex = this.selectedHero.off - this.penalty - -this.advantage - -this.roll;
-    if (this.attackIndex < 0) {this.attackIndex = 0}
-    if (this.attackIndex > 150) {this.attackIndex = 150}
+    this.offense = this.heroWeapon.base * (this.odSplit/100);
+    this.defense = this.heroWeapon.base - this.offense;
+    this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll;
+    if (this.attackIndex < 0) {this.attackIndex = 0};
+    if (this.attackIndex > 150) {this.attackIndex = 150};
   }
   passIndex(event: any) { // without type info
+    console.log(this.selectedWeapon.table);
     this.loadWeaponTable(this.selectedWeapon.table);
   }
 
@@ -85,7 +101,7 @@ export class AppComponent implements OnInit {
     this.getHeroes();
     this.getWeapons();
     this.loadWeaponList();
-
+    this.selectedWeapon = {weapon: "Default", fumble: 0, table: "NOT_VALID"};
   }
 
 }

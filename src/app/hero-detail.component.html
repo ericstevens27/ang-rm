@@ -12,26 +12,68 @@
   </div>
 </div>
 
+
 <div *ngIf="selectedHero" class="right">
-  <h2>{{selectedHero.name}}</h2>
+  <h2>{{selectedHero.name}} Weapons</h2>
   <div>
-    <label>Weapon: </label>
-    <select name="getWeapon" [(ngModel)]="selectedWeapon" (blur)="passIndex($event.target.value)">
-      <option *ngFor="let wl of weapons" [ngValue]="wl" selected='{{selectedWeaponDefault}}'>
+   <ul class="weapons">
+      <li *ngFor="let w of selectedHero.weapons"
+          [class.selected]="w === heroWeapon"
+          (click)="onSelectWeapon(w)">
+        <span class="badge">{{w.name}}</span> {{w.table}}: <b>{{w.fumble}}</b>
+      </li>
+    </ul>
+  </div>
+  <!--<div *ngIf="selectedHero">
+    <p>Hero's weapon is currently: {{selectedHero.weapon}}</p>
+    <label>Weapon:</label>
+    <select [(ngModel)]="selectedWeapon" (blur)="passIndex($event.target.value)">
+      &lt;!&ndash;<option value="noption" disabled selected>Select the weapon to use</option>&ndash;&gt;
+      <option *ngFor="let wl of weapons" value="wl">
         {{wl.weapon}}
       </option>
     </select>
-  </div>
-  <div *ngIf="selectedWeapon">
+  </div>-->
+  <div *ngIf="heroWeapon">
     <p class="note">
-      Fumble on unmodifed roll of <i><b>{{selectedWeapon.fumble}}</b></i> or less</p>
-
+      Fumble on unmodifed roll of <i><b>{{heroWeapon.fumble}}</b></i> or less</p>
   </div>
-  <div>
+  <div *ngIf="heroWeapon">
     <table>
       <tr>
         <td>
-          <label class="colWide">Offense Base: </label>
+          <label class="colWide">Offense Split: </label>
+        </td>
+        <td>
+          <label class="colWide">Base: </label>
+        </td>
+        <td>
+          <label class="colWide">Offense: </label>
+        </td>
+        <td>
+          <label class="colWide">Defense: </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="number" (blur)="onKey($event)" [(ngModel)]="odSplit"/>
+        </td>
+        <td>
+          <input type="number" (blur)="onKey($event)" [(ngModel)]="heroWeapon.base"/>
+        </td>
+        <td>
+          <p>
+            {{offense}}
+          </p>
+        </td>
+        <td>
+          <p>
+            {{defense}}
+          </p>        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="colWide"> </label>
         </td>
         <td>
           <label class="colWide">Penalties: </label>
@@ -45,32 +87,32 @@
       </tr>
       <tr>
         <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="selectedHero.off" placeholder="Base"/>
+
         </td>
         <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="penalty" placeholder="Penalty"/>
+          <input type="number" (blur)="onKey($event)" [(ngModel)]="penalty"/>
         </td>
         <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="advantage" placeholder="Bonus"/>
+          <input type="number" (blur)="onKey($event)" [(ngModel)]="advantage"/>
         </td>
         <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="roll" placeholder="Roll"/>
+          <input type="number" (blur)="onKey($event)" [(ngModel)]="roll"/>
         </td>
       </tr>
     </table>
   </div>
 
-  <div>
+  <div *ngIf="heroWeapon">
     <label class="atLabel">Attack Table: </label>
-    <select [(ngModel)]="selectedHero.at">
+    <select [(ngModel)]="attackType">
       <option *ngFor="let at of atList" value={{at.id}}>
         {{at.id}}
       </option>
     </select>
   </div>
-  <div class="wideLabel" *ngIf="selectedWeapon">
-    <p class="Big veryWide">The attack result is: <b>{{attackValue}}</b></p>
-    <p class="wideLabel small veryWide"><i>{{selectedWeapon.table}}[{{attackIndex}}][{{selectedHero.at}}]</i></p>
+  <div class="wideLabel" *ngIf="heroWeapon">
+    <p class="Big veryWide">The attack result is: <b>{{attackIndex}}</b></p>
+    <p class="wideLabel small veryWide"><i>{{heroWeapon.table}}[{{attackIndex}}][{{attackType}}]</i></p>
   </div>
 
 
@@ -80,49 +122,34 @@
       <table>
         <tr>
           <td>
-            <p class="wideLabelIndent Big Red" *ngIf="roll <= selectedWeapon.fumble"><b>FUMBLE!</b></p>
+            <p class="wideLabelIndent Big Red" *ngIf="roll <= heroWeapon.fumble"><b>FUMBLE!</b></p>
           </td>
         </tr>
         <tr>
           <td>
-            <p class="wideLabelIndent Big">Hits: <b>{{weapTable[attackIndex][selectedHero.at].hits}}</b></p><br>
-            <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][selectedHero.at].hits == 0"> Miss!</p>
-            <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][selectedHero.at].hits > 0"> Hit!</p>
+            <p class="wideLabelIndent Big">Hits: <b>{{weapTable[attackIndex][attackType].hits}}</b></p><br>
+            <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][attackType].hits == 0"> Miss!</p>
+            <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][attackType].hits > 0"> Hit!</p>
           </td>
 
         </tr>
         <tr>
           <td>
             <p class="wideLabelIndent Big">Critical Level:
-              <b>{{weapTable[attackIndex][selectedHero.at].critical_level}}</b></p>
+              <b>{{weapTable[attackIndex][attackType].critical_level}}</b></p>
           </td>
         </tr>
         <tr>
           <td>
             <p class="wideLabelIndent Big">Critical Type:
-              <b>{{weapTable[attackIndex][selectedHero.at].critical_type}}</b></p><br>
-            <p class="wideLabelIndent Red" *ngIf="'' != weapTable[attackIndex][selectedHero.at].critical_type"><b>{{getCritType(weapTable[attackIndex][selectedHero.at].critical_type)}}</b>
-            </p>
+              <b>{{weapTable[attackIndex][attackType].critical_type}}</b></p><br>
+            <p class="wideLabelIndent Red" *ngIf="'' != weapTable[attackIndex][attackType].critical_type"><b>{{getCritType(weapTable[attackIndex][attackType].critical_type)}}</b></p>
           </td>
         </tr>
       </table>
     </div>
   </div>
-  <!--  <div *ngIf="weapTable">
-        <div>
-          <p>Trying to get just a single weapon with index [{{attackRow}},{{attackType}}]:<br>
-            Hits: {{weapTable[attackRow][attackType].hits}}<br>
-            Critical Level: {{weapTable[85][5].critical_level}}<br>
-            Critical Type: {{weapTable[85][5].critical_type}}<br>
-          </p>
-        </div>
-        <template ngFor [ngForOf]="weapTable" let-w let-j="index">
-          <li class="weapons" *ngFor="let a of w; let i = index">
-            <span class="badge">{{j}}, {{i}} </span>Hits: {{a.hits}} Critical Level: {{a.critical_level}}, Critical Type:
-            [{{a.critical_type}}]
-          </li>
-        </template>
-      </div>-->
+ 
 </div>
 
 
