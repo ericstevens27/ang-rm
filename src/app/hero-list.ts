@@ -1,6 +1,6 @@
 import { Hero } from './hero';
 
-export const HEROES: Hero[] = [
+/*export const HEROES: Hero[] = [
   {
     id: 11, name: 'Eric', character: "Marcus Tenues",
     weapons: [
@@ -22,4 +22,4 @@ export const HEROES: Hero[] = [
       {name: 'War Hammer', table: 'WAR_HAMMER', fumble: 5, base: -20}
     ]
   }
-];
+];*/

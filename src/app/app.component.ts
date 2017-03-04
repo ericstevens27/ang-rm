@@ -64,8 +64,8 @@ export class AppComponent implements OnInit {
     this.heroWeapon = wt;
     this.loadWeaponTable(wt.table);
   }
-  getHeroes(): void {
-    this.heroes = this._dataService.getHeroes();
+  loadHeroes(): void {
+    this._dataService.getHeroes().subscribe(data => this.heroes = data);
   }
   getWeapons(): void {
     // debugger;
@@ -90,7 +90,7 @@ export class AppComponent implements OnInit {
     return this.critList.filter(critList => critList.id === id)[0].name;
   }
   ngOnInit(): void {
-    this.getHeroes();
+    this.loadHeroes();
     this.getWeapons();
     this.loadWeaponList();
 

@@ -23,9 +23,12 @@ export class DataService {
     return this.http.get(this.baseURL + 'weapon/' + name)
       .map((res:Response) => res.json());
   }
-    getHeroes(): Hero[] {
-        return HEROES;
+    getHeroes() {
+      return this.http.get(this.baseURL + 'users')
+        .map((res:Response) => res.json());
     }
-
+/*  getHeroes(): Hero[] {
+    return HEROES;
+  }*/
 }
 
