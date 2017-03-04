@@ -61,9 +61,7 @@ export class AppComponent implements OnInit {
   this.selectedHero = hero;
 }
   onSelectWeapon(wt: heroWeapons): void {
-    console.log(wt);
     this.heroWeapon = wt;
-    console.log(this.heroWeapon);
     this.loadWeaponTable(wt.table);
   }
   getHeroes(): void {
@@ -84,8 +82,8 @@ export class AppComponent implements OnInit {
     this.offense = this.heroWeapon.base * (this.odSplit/100);
     this.defense = this.heroWeapon.base - this.offense;
     this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll;
-    if (this.attackIndex < 0) {this.attackIndex = 0};
-    if (this.attackIndex > 150) {this.attackIndex = 150};
+    if (this.attackIndex < 0) {this.attackIndex = 0}
+    if (this.attackIndex > 150) {this.attackIndex = 150}
   }
 
   getCritType(id: string) {
