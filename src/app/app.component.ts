@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
   odSplit = 100;
   offense = 100;
   defense = 0;
+  enemyDefense = 100;
   roll = 0;
   attackMax = 150;
 
@@ -98,7 +99,7 @@ export class AppComponent implements OnInit {
 
   }
   calcAttackIndex () {
-    this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll;
+    this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll - this.enemyDefense;
     if (this.attackIndex < 0) {this.attackIndex = 0}
     if (this.attackIndex > this.attackMax) {this.attackIndex = this.attackMax}
   }

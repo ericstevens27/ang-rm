@@ -10,6 +10,10 @@
       </li>
     </ul>
   </div>
+  <div>
+    <label style="width: 10em; padding-top: 0; font-size: 1em">Debug?  <input style="height: 1em; padding-top: 0; font-size: 1em" type="checkbox" [(ngModel)]="debug"/>
+    </label>
+     </div>
 </div>
 
 
@@ -74,7 +78,7 @@
           <label class="colWide"></label>
         </td>
         <td>
-          <label class="colWide"> </label>
+
         </td>
       </tr>
       <tr>
@@ -88,6 +92,7 @@
         <td>
         </td>
         <td>
+
         </td>
       </tr>
       <tr>
@@ -99,7 +104,7 @@
           <label class="colWide atLabel">Attack Table:</label>
         </td>
         <td>
-          <label class="colWide"></label>
+          <label class="colWide">Opponent Defense:</label>
         </td>
         <td>
           <label class="colWide"> </label>
@@ -121,7 +126,7 @@
           </div>
         </td>
         <td>
-
+          <input type="number" (blur)="onKey($event)" [(ngModel)]="enemyDefense"/>
         </td>
         <td>
 
@@ -134,7 +139,7 @@
     <p class="Big veryWide">The attack result is: <b>{{attackIndex}}</b></p>
     <p *ngIf="debug" class="wideLabel small veryWide">Reading results from
       <i>{{heroWeapon.table}}[{{attackIndex}}][{{attackType}}]</i></p>
-    <div *ngIf="this.offense - this.penalty - -this.advantage - -this.roll > heroWeapon.maximum">
+    <div *ngIf="this.offense - this.penalty - -this.advantage - -this.roll - this.enemyDefense > heroWeapon.maximum">
       <p class="wideLabelIndent small" style="width: 20em">Weapon Max reached!</p>
 
     </div>
