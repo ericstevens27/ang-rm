@@ -2,21 +2,27 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import { Hero } from './hero';
-import { WeaponNames } from './weapon-names';
 import { Weapon } from './weapon';
 import { DataService } from './all.service';
 
 import {combatTable} from './combat-tables';
-import {MARTIAL_ARTS_STRIKING} from './combat-tables';
 import { WeaponService } from './weapon.service';
 
 export class atNumbers {
   id: number;
 }
+export class criticalTypes {
+  id: string;
+  name: string;
+}
 
 const AT: atNumbers[] = [
   {id: 1},  {id: 2},  {id: 3},  {id: 4},  {id: 5},  {id: 6},  {id: 7},  {id: 8},  {id: 9},  {id: 10},
   {id: 11},  {id: 12},  {id: 13},  {id: 14},  {id: 15},  {id: 16},  {id: 17},  {id: 18},  {id: 19},  {id: 20}
+];
+
+const critType: criticalTypes[] = [
+  {id: "P", name: "Puncture"},  {id: "S", name: "Slash"},  {id: "K", name: "Crush"},  {id: "G", name: "Grapple"},  {id: "U", name: "Unbalance"},  {id: "T", name: "Tiny"}
 ];
 
 @Component({
@@ -31,17 +37,14 @@ export class AppComponent implements OnInit {
   title = 'Rolemaster Combat';
   heroes: Hero[];
   weapons: Weapon[];
-  combat = MARTIAL_ARTS_STRIKING;
   weapTable: combatTable[];
-  attackValue = 0;
   attackIndex = 0;
   atList = AT;
+  critList = critType;
   selectedHero: Hero;
   penalty = 0;
   advantage = 0;
   roll = 0;
-  attackRow = 85;
-  attackType = 1;
   selectedWeapon: Weapon;
   selectedWeaponDefault = 'Falchion';
 
@@ -62,18 +65,21 @@ export class AppComponent implements OnInit {
   loadWeaponTable(name: string) {
       return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }
-  loadWeaponElement(toHit: number, at: number): combatTable {
-    return this.weapTable[toHit][at];
-  }
+/*  loadWeaponElement(toHit: number, at: number): combatTable {
+    return this.weapTable[toHit][at]
+  }*/
 
   onKey(event: any) { // without type info
     this.attackIndex = this.selectedHero.off - this.penalty - -this.advantage - -this.roll;
-    if (this.attackIndex < 0) {this.attackIndex = 0};
-    if (this.attackIndex >150) {this.attackIndex = 150};
+    if (this.attackIndex < 0) {this.attackIndex = 0}
+    if (this.attackIndex > 150) {this.attackIndex = 150}
   }
   passIndex(event: any) { // without type info
-    console.log (this.selectedWeapon.weapon, this.selectedWeapon.table, this.selectedWeapon.fumble);
     this.loadWeaponTable(this.selectedWeapon.table);
+  }
+
+  getCritType(id: string) {
+    return this.critList.filter(critList => critList.id === id)[0].name;
   }
   ngOnInit(): void {
     this.getHeroes();

@@ -12,53 +12,6 @@
   </div>
 </div>
 
-<!--<button (click)="loadWeaponList()">Load Weapon List</button>-->
-
-<!--    <div *ngIf="weapons">
-      <label>Weapon: </label>
-      <select name="getWeapon" [(ngModel)]="selectedWeapon" (blur)="passIndex($event.target.value)">
-        <option *ngFor="let wl of weapons" [ngValue]="wl" selected='{{selectedWeaponDefault}}' >
-          {{wl.weapon}}
-        </option>
-      </select>
-
-    </div>
-    <div *ngIf="selectedWeapon">
-      <p>Trying to get details for weapon with: Name: {{selectedWeapon.weapon}}, Fumble: {{selectedWeapon.fumble}}, Table: {{selectedWeapon.table}} </p>
-    </div>-->
-<!--
-    <div>
-      <ul class="weapons">
-        <li *ngFor="let w of weapons">
-          <span class="badge">{{w.weapon}}</span> fumble <= {{w.fumble}}, Weapon Table: [{{w.table}}]
-        </li>
-      </ul>
-    </div>
--->
-
-<!--  <div style="width: 60em">
-  {{ weapons | json }}
-  </div>-->
-<!--<div *ngIf="weapons">
-  <button (click)="loadWeaponTable(weapons[1].table)">Load Weapon Table for {{weapons[1].weapon}}</button>
-      <div>
-        <div *ngIf="weapTable">
-          <p>Trying to get just a single weapon with index [{{attackRow}},{{attackType}}]:<br>
-            Hits: {{weapTable[attackRow][attackType].hits}}<br>
-            Critical Level: {{weapTable[85][5].critical_level}}<br>
-            Critical Type: {{weapTable[85][5].critical_type}}<br>
-          </p>
-        </div>
-        <template ngFor [ngForOf]="weapTable" let-w let-j="index">
-          <li class="weapons" *ngFor="let a of w; let i = index">
-            <span class="badge">{{j}}, {{i}} </span>Hits: {{a.hits}} Critical Level: {{a.critical_level}}, Critical Type: [{{a.critical_type}}]
-          </li>
-        </template>
-      </div>
-    </div>
-</div>-->
-
-
 <div *ngIf="selectedHero" class="right">
   <h2>{{selectedHero.name}}</h2>
   <div>
@@ -148,9 +101,7 @@
           <td>
             <p class="wideLabelIndent Big">Critical Type:
               <b>{{weapTable[attackIndex][selectedHero.at].critical_type}}</b></p><br>
-            <p class="wideLabelIndent Red" *ngIf="'K' == weapTable[attackIndex][selectedHero.at].critical_type"><b>Crushing!</b>
-            </p>
-            <p class="wideLabelIndent Red" *ngIf="'S' == weapTable[attackIndex][selectedHero.at].critical_type"><b>Slashing!</b>
+            <p class="wideLabelIndent Red" *ngIf="'' != weapTable[attackIndex][selectedHero.at].critical_type"><b>{{getCritType(weapTable[attackIndex][selectedHero.at].critical_type)}}</b>
             </p>
           </td>
         </tr>
