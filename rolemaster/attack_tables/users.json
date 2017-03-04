@@ -5,17 +5,38 @@
     "character": "Marcus Tenues",
     "weapons": [
       {
-        "name": "Battle Axe",
-        "table": "BATTLE_AXE",
-        "fumble": 5,
-        "base": 115
+        "name": "Martial Arts - Striking 1",
+        "table": "MARTIAL_ARTS_STRIKING",
+        "fumble": 2,
+        "base": 110,
+        "maximum": 105,
+        "itemBonus": 5
       },
       {
-        "name": "War Hammer",
-        "table": "WAR_HAMMER",
-        "fumble": 5,
-        "base": 30
+        "name": "Martial Arts - Striking 2",
+        "table": "MARTIAL_ARTS_STRIKING",
+        "fumble": 2,
+        "base": 106,
+        "maximum": 120,
+        "itemBonus": 5
+      },
+      {
+        "name": "Martial Arts - Striking 3",
+        "table": "MARTIAL_ARTS_STRIKING",
+        "fumble": 2,
+        "base": 98,
+        "maximum": 135,
+        "itemBonus": 5
+      },
+      {
+        "name": "Martial Arts - Striking 5",
+        "table": "MARTIAL_ARTS_STRIKING",
+        "fumble": 2,
+        "base": 96,
+        "maximum": 150,
+        "itemBonus": 5
       }
+
     ]
   },
   {
@@ -27,13 +48,17 @@
         "name": "Composite Bow",
         "table": "COMPOSITE_BOW",
         "fumble": 5,
-        "base": 80
+        "base": 80,
+        "maximum": 150,
+        "itemBonus": 5
       },
       {
         "name": "Hand Axe",
         "table": "HAND_AXE",
         "fumble": 5,
-        "base": 75
+        "base": 75,
+        "maximum": 150,
+        "itemBonus": 0
       }
     ]
   },
@@ -46,13 +71,17 @@
         "name": "Quarterstaff",
         "table": "QUARTERSTAFF",
         "fumble": 5,
-        "base": 30
+        "base": 30,
+        "maximum": 150,
+        "itemBonus": 0
       },
       {
         "name": "War Hammer",
         "table": "WAR_HAMMER",
         "fumble": 5,
-        "base": -20
+        "base": -20,
+        "maximum": 150,
+        "itemBonus": 0
       }
     ]
   }

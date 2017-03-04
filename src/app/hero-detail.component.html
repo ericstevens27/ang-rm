@@ -20,12 +20,15 @@
       <li *ngFor="let w of selectedHero.weapons"
           [class.selected]="w === heroWeapon"
           (click)="onSelectWeapon(w)">
-        <span class="badge">{{w.base}}</span> <b>{{w.name}}</b> <i class="small">(Fumble {{w.fumble}} Table:
-        {{w.table}})</i>
+        <span class="badge">{{w.base}} + {{w.itemBonus}}</span> <b>{{w.name}}</b>
       </li>
     </ul>
   </div>
-
+  <div *ngIf="debug && heroWeapon">
+    <p>Working with {{heroWeapon.name}} with:<br>
+    <i class="small">Maximum: {{heroWeapon.maximum}} Fumble {{heroWeapon.fumble}} Table: {{heroWeapon.table}}</i><br>
+    <p class="small">Base: {{heroWeapon.base}} Item Bonus: {{heroWeapon.itemBonus}}</p>
+  </div>
   <div *ngIf="heroWeapon">
     <table>
       <tr>
@@ -129,8 +132,12 @@
 
   <div class="wideLabel" *ngIf="heroWeapon">
     <p class="Big veryWide">The attack result is: <b>{{attackIndex}}</b></p>
-<!--    <p class="wideLabel small veryWide">Reading results from
-      <i>{{heroWeapon.table}}[{{attackIndex}}][{{attackType}}]</i></p>-->
+    <p *ngIf="debug" class="wideLabel small veryWide">Reading results from
+      <i>{{heroWeapon.table}}[{{attackIndex}}][{{attackType}}]</i></p>
+    <div *ngIf="this.offense - this.penalty - -this.advantage - -this.roll > heroWeapon.maximum">
+      <p class="wideLabelIndent small" style="width: 20em">Weapon Max reached!</p>
+
+    </div>
   </div>
 
 
@@ -146,7 +153,6 @@
                 or less</p>
 
             </div>
-
           </td>
         </tr>
         <tr>

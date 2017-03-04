@@ -4,6 +4,8 @@ export class heroWeapons {
   fumble: number;
   table: string;
   base: number;
+  maximum: number;
+  itemBonus: number;
 }
 
 export class Hero {

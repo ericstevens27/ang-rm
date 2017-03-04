@@ -51,6 +51,9 @@ export class AppComponent implements OnInit {
   offense = 100;
   defense = 0;
   roll = 0;
+  attackMax = 150;
+
+  debug = false;
 
 
   loadWeaponList() {
@@ -63,6 +66,10 @@ export class AppComponent implements OnInit {
   onSelectWeapon(wt: heroWeapons): void {
     this.heroWeapon = wt;
     this.loadWeaponTable(wt.table);
+    this.advantage = wt.itemBonus;
+    this.offense = wt.base * (this.odSplit/100);
+    this.attackMax = wt.maximum;
+    this.calcAttackIndex();
   }
   loadHeroes(): void {
     this._dataService.getHeroes().subscribe(data => this.heroes = data);
@@ -74,16 +81,11 @@ export class AppComponent implements OnInit {
   loadWeaponTable(name: string) {
       return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }
-/*  loadWeaponElement(toHit: number, at: number): combatTable {
-    return this.weapTable[toHit][at]
-  }*/
 
   onKey(event: any) { // without type info
     this.offense = this.heroWeapon.base * (this.odSplit/100);
     this.defense = this.heroWeapon.base - this.offense;
-    this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll;
-    if (this.attackIndex < 0) {this.attackIndex = 0}
-    if (this.attackIndex > 150) {this.attackIndex = 150}
+    this.calcAttackIndex();
   }
 
   getCritType(id: string) {
@@ -94,6 +96,11 @@ export class AppComponent implements OnInit {
     this.getWeapons();
     this.loadWeaponList();
 
+  }
+  calcAttackIndex () {
+    this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll;
+    if (this.attackIndex < 0) {this.attackIndex = 0}
+    if (this.attackIndex > this.attackMax) {this.attackIndex = this.attackMax}
   }
 
 }
