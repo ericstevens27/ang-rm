@@ -3,6 +3,20 @@
     "id": 11,
     "name": "Eric",
     "character": "Marcus Tenues",
+    "race": "Common Man",
+    "profession": "Warrior Monk",
+    "level": 10,
+    "hitpoints": 95,
+    "defenseBase": 105,
+    "stats": [
+
+    ],
+    "skills": [
+
+    ],
+    "items": [
+
+    ],
     "weapons": [
       {
         "name": "Martial Arts - Striking 1",
