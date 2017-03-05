@@ -8,13 +8,341 @@
     "level": 10,
     "hitpoints": 95,
     "defenseBase": 105,
-    "stats": [
+    "stats":
+      [
+        {
+          "name": "CO",
+          "description": "Constitution",
+          "value": 92,
+          "bonusTotal": 12,
+          "bonusStat": 12,
+          "bonusRacial": 0
+        },
+        {
+          "name": "AG",
+          "description": "Agility",
+          "value": 96,
+          "bonusTotal": 17,
+          "bonusStat": 17,
+          "bonusRacial": 0
+        },
+        {
+          "name": "SD",
+          "description": "Self-Discipline",
+          "value": 98,
+          "bonusTotal": 26,
+          "bonusStat": 21,
+          "bonusRacial": 5
+        },
+        {
+          "name": "ME",
+          "description": "Memory",
+          "value": 50,
+          "bonusTotal": 0,
+          "bonusStat": 0,
+          "bonusRacial": 0
+        },
+        {
+          "name": "RE",
+          "description": "Reasoning",
+          "value": 80,
+          "bonusTotal": 6,
+          "bonusStat": 6,
+          "bonusRacial": 0
+        },
+        {
+          "name": "ST",
+          "description": "Strength",
+          "value": 96,
+          "bonusTotal": 22,
+          "bonusStat": 17,
+          "bonusRacial": 5
+        },
+        {
+          "name": "QU",
+          "description": "Quickness",
+          "value": 101,
+          "bonusTotal": 35,
+          "bonusStat": 35,
+          "bonusRacial": 0
+        },
+        {
+          "name": "PR",
+          "description": "Presence",
+          "value": 85,
+          "bonusTotal": 8,
+          "bonusStat": 8,
+          "bonusRacial": 0
+        },
+        {
+          "name": "EM",
+          "description": "Empathy",
+          "value": 25,
+          "bonusTotal": -5,
+          "bonusStat": -5,
+          "bonusRacial": 0
+        },
+        {
+          "name": "IN",
+          "description": "Intuition",
+          "value": 90,
+          "bonusTotal": 10,
+          "bonusStat": 10,
+          "bonusRacial": 0
+        }
+      ],
+    "skills":
+      [
+        {
+          "name": "Riding",
+          "value": 31,
+          "stats": "EM/AG",
+          "rank": 1
+        },
+        {
+          "name": "Body Development",
+          "value": 92,
+          "stats": "CO",
+          "rank": 15
+        },
+        {
+          "name": "Climbing",
+          "value": 72,
+          "stats": "AG",
+          "rank": 7
+        },
+        {
+          "name": "Swimming",
+          "value": 42,
+          "stats": "AG",
+          "rank": 1
+        },
+        {
+          "name": "Martial Arts - Strikes 1",
+          "value": 110,
+          "stats": "ST/ST/AG",
+          "rank": 20
+        },
+        {
+          "name": "Martial Arts - Strikes 2",
+          "value": 106,
+          "stats": "ST/ST/AG",
+          "rank": 18
+        },
+        {
+          "name": "Martial Arts - Strikes 3",
+          "value": 98,
+          "stats": "ST/ST/AG",
+          "rank": 14
+        },
+        {
+          "name": "Martial Arts - Strikes 4",
+          "value": 96,
+          "stats": "ST/ST/AG",
+          "rank": 13
+        },
+        {
+          "name": "Adrenal Defense",
+          "value": 105,
+          "stats": "QU",
+          "rank": 20
+        },
+        {
+          "name": "Adr Move - Balance",
+          "value": 47,
+          "stats": "PR/SD",
+          "rank": 6
+        },
+        {
+          "name": "Adr Move - Landing",
+          "value": 27,
+          "stats": "PR/SD",
+          "rank": 2
+        },
+        {
+          "name": "Adr Move - Leaping",
+          "value": 87,
+          "stats": "PR/SD",
+          "rank": 20
+        },
+        {
+          "name": "Adr Move - Speed",
+          "value": 85,
+          "stats": "PR/SD",
+          "rank": 19
+        },
+        {
+          "name": "Adr Move - Strength",
+          "value": 27,
+          "stats": "PR/SD",
+          "rank": 2
+        },
+        {
+          "name": "Acrobatics",
+          "value": 106,
+          "stats": "AG/QU",
+          "rank": 15
+        },
+        {
+          "name": "General Perception",
+          "value": 75,
+          "stats": "IN/IN/RE",
+          "rank": 13
+        },
+        {
+          "name": "Stalk",
+          "value": 71,
+          "stats": "AG",
+          "rank": 12
+        },
+        {
+          "name": "Hide",
+          "value": 80,
+          "stats": "SD",
+          "rank": 0
+        },
+        {
+          "name": "Streetwise",
+          "value": 49,
+          "stats": "PR/IN",
+          "rank": 4
+        },
+        {
+          "name": "Ambush",
+          "value": 54,
+          "stats": "AG/IN",
+          "rank": 6
+        }
 
     ],
-    "skills": [
-
-    ],
-    "items": [
+    "items":
+      [
+        {
+          "id": 2,
+          "name": "Backpack",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 2.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 5,
+          "name": "Boots",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 3.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 16,
+          "name": "Cloak",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 2.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 21,
+          "name": "Flint and steel",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 23,
+          "name": "Gloves",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 28,
+          "name": "Hat",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 1,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 41,
+          "name": "Pants",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 1.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 59,
+          "name": "Shirt",
+          "special": "FALSE",
+          "quantity": 3,
+          "weight": 3,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 68,
+          "name": "Water skin",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.25,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 1005,
+          "name": "Boots of Movement",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 3.5,
+          "deadWeight": "FALSE",
+          "notes": "+5 Move"
+        },
+        {
+          "id": 1023,
+          "name": "Reinforced Gloves",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "FALSE",
+          "notes": "+5 MA Strikes"
+        },
+        {
+          "id": 1052,
+          "name": "50 climbing rope",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 3,
+          "deadWeight": "TRUE",
+          "notes": "+10 Climbing Bonus"
+        },
+        {
+          "id": 1003,
+          "name": "Blanket of Warmth",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 5.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 2000,
+          "name": "Riding Horse",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": "",
+          "deadWeight": "FALSE",
+          "notes": ""
+        }
 
     ],
     "weapons": [
@@ -57,6 +385,349 @@
     "id": 13,
     "name": "Shawn",
     "character": "Shawn's Guy",
+    "race": "Elf",
+    "profession": "Ranger",
+    "level": 10,
+    "hitpoints": 80,
+    "defenseBase": 80,
+    "stats":
+      [
+        {
+          "name": "CO",
+          "description": "Constitution",
+          "value": 100,
+          "bonusTotal": 12,
+          "bonusStat": 12,
+          "bonusRacial": 0
+        },
+        {
+          "name": "AG",
+          "description": "Agility",
+          "value": 100,
+          "bonusTotal": 17,
+          "bonusStat": 17,
+          "bonusRacial": 0
+        },
+        {
+          "name": "SD",
+          "description": "Self-Discipline",
+          "value": 100,
+          "bonusTotal": 26,
+          "bonusStat": 21,
+          "bonusRacial": 5
+        },
+        {
+          "name": "ME",
+          "description": "Memory",
+          "value": 100,
+          "bonusTotal": 0,
+          "bonusStat": 0,
+          "bonusRacial": 0
+        },
+        {
+          "name": "RE",
+          "description": "Reasoning",
+          "value": 100,
+          "bonusTotal": 6,
+          "bonusStat": 6,
+          "bonusRacial": 0
+        },
+        {
+          "name": "ST",
+          "description": "Strength",
+          "value": 20,
+          "bonusTotal": 22,
+          "bonusStat": 17,
+          "bonusRacial": 5
+        },
+        {
+          "name": "QU",
+          "description": "Quickness",
+          "value": 20,
+          "bonusTotal": 35,
+          "bonusStat": 35,
+          "bonusRacial": 0
+        },
+        {
+          "name": "PR",
+          "description": "Presence",
+          "value": 20,
+          "bonusTotal": 8,
+          "bonusStat": 8,
+          "bonusRacial": 0
+        },
+        {
+          "name": "EM",
+          "description": "Empathy",
+          "value": 20,
+          "bonusTotal": -5,
+          "bonusStat": -5,
+          "bonusRacial": 0
+        },
+        {
+          "name": "IN",
+          "description": "Intuition",
+          "value": 20,
+          "bonusTotal": 10,
+          "bonusStat": 10,
+          "bonusRacial": 0
+        }
+
+    ],
+    "skills":
+      [
+        {
+          "name": "Riding",
+          "value": 31,
+          "stats": "EM/AG",
+          "rank": 1
+        },
+        {
+          "name": "Body Development",
+          "value": 92,
+          "stats": "CO",
+          "rank": 15
+        },
+        {
+          "name": "Climbing",
+          "value": 72,
+          "stats": "AG",
+          "rank": 7
+        },
+        {
+          "name": "Swimming",
+          "value": 42,
+          "stats": "AG",
+          "rank": 1
+        },
+        {
+          "name": "Martial Arts - Strikes 1",
+          "value": 110,
+          "stats": "ST/ST/AG",
+          "rank": 20
+        },
+        {
+          "name": "Martial Arts - Strikes 2",
+          "value": 106,
+          "stats": "ST/ST/AG",
+          "rank": 18
+        },
+        {
+          "name": "Martial Arts - Strikes 3",
+          "value": 98,
+          "stats": "ST/ST/AG",
+          "rank": 14
+        },
+        {
+          "name": "Martial Arts - Strikes 4",
+          "value": 96,
+          "stats": "ST/ST/AG",
+          "rank": 13
+        },
+        {
+          "name": "Adrenal Defense",
+          "value": 105,
+          "stats": "QU",
+          "rank": 20
+        },
+        {
+          "name": "Adr Move - Balance",
+          "value": 47,
+          "stats": "PR/SD",
+          "rank": 6
+        },
+        {
+          "name": "Adr Move - Landing",
+          "value": 27,
+          "stats": "PR/SD",
+          "rank": 2
+        },
+        {
+          "name": "Adr Move - Leaping",
+          "value": 87,
+          "stats": "PR/SD",
+          "rank": 20
+        },
+        {
+          "name": "Adr Move - Speed",
+          "value": 85,
+          "stats": "PR/SD",
+          "rank": 19
+        },
+        {
+          "name": "Adr Move - Strength",
+          "value": 27,
+          "stats": "PR/SD",
+          "rank": 2
+        },
+        {
+          "name": "Acrobatics",
+          "value": 106,
+          "stats": "AG/QU",
+          "rank": 15
+        },
+        {
+          "name": "General Perception",
+          "value": 75,
+          "stats": "IN/IN/RE",
+          "rank": 13
+        },
+        {
+          "name": "Stalk",
+          "value": 71,
+          "stats": "AG",
+          "rank": 12
+        },
+        {
+          "name": "Hide",
+          "value": 80,
+          "stats": "SD",
+          "rank": 0
+        },
+        {
+          "name": "Streetwise",
+          "value": 49,
+          "stats": "PR/IN",
+          "rank": 4
+        },
+        {
+          "name": "Ambush",
+          "value": 54,
+          "stats": "AG/IN",
+          "rank": 6
+        }
+
+    ],
+    "items":
+      [
+        {
+          "id": 2,
+          "name": "Backpack",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 2.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 5,
+          "name": "Boots",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 3.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 16,
+          "name": "Cloak",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 2.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 21,
+          "name": "Flint and steel",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 23,
+          "name": "Gloves",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 28,
+          "name": "Hat",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 1,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 41,
+          "name": "Pants",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 1.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 59,
+          "name": "Shirt",
+          "special": "FALSE",
+          "quantity": 3,
+          "weight": 3,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 68,
+          "name": "Water skin",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.25,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 1005,
+          "name": "Boots of Movement",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 3.5,
+          "deadWeight": "FALSE",
+          "notes": "+5 Move"
+        },
+        {
+          "id": 1023,
+          "name": "Reinforced Gloves",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "FALSE",
+          "notes": "+5 MA Strikes"
+        },
+        {
+          "id": 1052,
+          "name": "50 climbing rope",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 3,
+          "deadWeight": "TRUE",
+          "notes": "+10 Climbing Bonus"
+        },
+        {
+          "id": 1003,
+          "name": "Blanket of Warmth",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 5.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 2000,
+          "name": "Riding Horse",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": "",
+          "deadWeight": "FALSE",
+          "notes": ""
+        }
+
+    ],
     "weapons": [
       {
         "name": "Composite Bow",
@@ -79,7 +750,350 @@
   {
     "id": 12,
     "name": "Jim",
-    "character": "Jim's Guy",
+    "character": "Tanith Marcarion",
+    "race": "Half-Elf A",
+    "profession": "Magician",
+    "level": 10,
+    "hitpoints": 40,
+    "defenseBase": 30,
+    "stats":
+      [
+        {
+          "name": "CO",
+          "description": "Constitution",
+          "value": 90,
+          "bonusTotal": 15,
+          "bonusStat": 10,
+          "bonusRacial": 5
+        },
+        {
+          "name": "AG",
+          "description": "Agility",
+          "value": 92,
+          "bonusTotal": 17,
+          "bonusStat": 12,
+          "bonusRacial": 5
+        },
+        {
+          "name": "SD",
+          "description": "Self-Discipline",
+          "value": 98,
+          "bonusTotal": 11,
+          "bonusStat": 21,
+          "bonusRacial": -10
+        },
+        {
+          "name": "ME",
+          "description": "Memory",
+          "value": 96,
+          "bonusTotal": 17,
+          "bonusStat": 17,
+          "bonusRacial": 0
+        },
+        {
+          "name": "RE",
+          "description": "Reasoning",
+          "value": 96,
+          "bonusTotal": 17,
+          "bonusStat": 17,
+          "bonusRacial": 0
+        },
+        {
+          "name": "ST",
+          "description": "Strength",
+          "value": 50,
+          "bonusTotal": 5,
+          "bonusStat": 0,
+          "bonusRacial": 5
+        },
+        {
+          "name": "QU",
+          "description": "Quickness",
+          "value": 25,
+          "bonusTotal": 5,
+          "bonusStat": -5,
+          "bonusRacial": 10
+        },
+        {
+          "name": "PR",
+          "description": "Presence",
+          "value": 80,
+          "bonusTotal": 16,
+          "bonusStat": 6,
+          "bonusRacial": 10
+        },
+        {
+          "name": "EM",
+          "description": "Empathy",
+          "value": 101,
+          "bonusTotal": 35,
+          "bonusStat": 35,
+          "bonusRacial": 0
+        },
+        {
+          "name": "IN",
+          "description": "Intuition",
+          "value": 85,
+          "bonusTotal": 8,
+          "bonusStat": 8,
+          "bonusRacial": 0
+        }
+
+    ],
+    "skills":
+      [
+        {
+          "name": "Riding",
+          "value": 31,
+          "stats": "EM/AG",
+          "rank": 1
+        },
+        {
+          "name": "Body Development",
+          "value": 92,
+          "stats": "CO",
+          "rank": 15
+        },
+        {
+          "name": "Climbing",
+          "value": 72,
+          "stats": "AG",
+          "rank": 7
+        },
+        {
+          "name": "Swimming",
+          "value": 42,
+          "stats": "AG",
+          "rank": 1
+        },
+        {
+          "name": "Martial Arts - Strikes 1",
+          "value": 110,
+          "stats": "ST/ST/AG",
+          "rank": 20
+        },
+        {
+          "name": "Martial Arts - Strikes 2",
+          "value": 106,
+          "stats": "ST/ST/AG",
+          "rank": 18
+        },
+        {
+          "name": "Martial Arts - Strikes 3",
+          "value": 98,
+          "stats": "ST/ST/AG",
+          "rank": 14
+        },
+        {
+          "name": "Martial Arts - Strikes 4",
+          "value": 96,
+          "stats": "ST/ST/AG",
+          "rank": 13
+        },
+        {
+          "name": "Adrenal Defense",
+          "value": 105,
+          "stats": "QU",
+          "rank": 20
+        },
+        {
+          "name": "Adr Move - Balance",
+          "value": 47,
+          "stats": "PR/SD",
+          "rank": 6
+        },
+        {
+          "name": "Adr Move - Landing",
+          "value": 27,
+          "stats": "PR/SD",
+          "rank": 2
+        },
+        {
+          "name": "Adr Move - Leaping",
+          "value": 87,
+          "stats": "PR/SD",
+          "rank": 20
+        },
+        {
+          "name": "Adr Move - Speed",
+          "value": 85,
+          "stats": "PR/SD",
+          "rank": 19
+        },
+        {
+          "name": "Adr Move - Strength",
+          "value": 27,
+          "stats": "PR/SD",
+          "rank": 2
+        },
+        {
+          "name": "Acrobatics",
+          "value": 106,
+          "stats": "AG/QU",
+          "rank": 15
+        },
+        {
+          "name": "General Perception",
+          "value": 75,
+          "stats": "IN/IN/RE",
+          "rank": 13
+        },
+        {
+          "name": "Stalk",
+          "value": 71,
+          "stats": "AG",
+          "rank": 12
+        },
+        {
+          "name": "Hide",
+          "value": 80,
+          "stats": "SD",
+          "rank": 0
+        },
+        {
+          "name": "Streetwise",
+          "value": 49,
+          "stats": "PR/IN",
+          "rank": 4
+        },
+        {
+          "name": "Ambush",
+          "value": 54,
+          "stats": "AG/IN",
+          "rank": 6
+        }
+
+    ],
+    "items":
+      [
+        {
+          "id": 2,
+          "name": "Backpack",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 2.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 5,
+          "name": "Boots",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 3.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 16,
+          "name": "Cloak",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 2.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 21,
+          "name": "Flint and steel",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 23,
+          "name": "Gloves",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 28,
+          "name": "Hat",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 1,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 41,
+          "name": "Pants",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 1.5,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 59,
+          "name": "Shirt",
+          "special": "FALSE",
+          "quantity": 3,
+          "weight": 3,
+          "deadWeight": "FALSE",
+          "notes": ""
+        },
+        {
+          "id": 68,
+          "name": "Water skin",
+          "special": "FALSE",
+          "quantity": 1,
+          "weight": 0.25,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 1005,
+          "name": "Boots of Movement",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 3.5,
+          "deadWeight": "FALSE",
+          "notes": "+5 Move"
+        },
+        {
+          "id": 1023,
+          "name": "Reinforced Gloves",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 0.5,
+          "deadWeight": "FALSE",
+          "notes": "+5 MA Strikes"
+        },
+        {
+          "id": 1052,
+          "name": "50 climbing rope",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 3,
+          "deadWeight": "TRUE",
+          "notes": "+10 Climbing Bonus"
+        },
+        {
+          "id": 1003,
+          "name": "Blanket of Warmth",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": 5.5,
+          "deadWeight": "TRUE",
+          "notes": ""
+        },
+        {
+          "id": 2000,
+          "name": "Riding Horse",
+          "special": "TRUE",
+          "quantity": 1,
+          "weight": "",
+          "deadWeight": "FALSE",
+          "notes": ""
+        }
+
+    ],
     "weapons": [
       {
         "name": "Quarterstaff",

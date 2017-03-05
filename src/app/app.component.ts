@@ -53,6 +53,10 @@ export class AppComponent implements OnInit {
   enemyDefense = 100;
   roll = 0;
   attackMax = 150;
+  showStats = false;
+  showCombat = false;
+  trueValue = true;
+  falseValue = false;
 
   debug = false;
 
@@ -61,8 +65,15 @@ export class AppComponent implements OnInit {
     this._dataService.getWeaponList().subscribe(data => this.weapons = data);
   }
 
-  onSelect(hero: Hero): void {
-  this.selectedHero = hero;
+  onSelectCombat(hero: Hero): void {
+    this.selectedHero = hero;
+    this.showCombat =true;
+    this.showStats = false;
+  }
+  onSelectStats(hero: Hero): void {
+    this.selectedHero = hero;
+    this.showStats =true;
+    this.showCombat = false;
 }
   onSelectWeapon(wt: heroWeapons): void {
     this.heroWeapon = wt;
@@ -102,6 +113,10 @@ export class AppComponent implements OnInit {
     this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll - this.enemyDefense;
     if (this.attackIndex < 0) {this.attackIndex = 0}
     if (this.attackIndex > this.attackMax) {this.attackIndex = this.attackMax}
+  }
+  private toggleShowStat(event: any) {
+    console.log("Got click with:", this.showStats);
+    if (this.showStats == true) {this.showStats = false} else {this.showStats = true}
   }
 
 }

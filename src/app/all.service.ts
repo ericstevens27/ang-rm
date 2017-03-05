@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 import {Hero} from './hero';
-import {HEROES} from './hero-list';
+// import {HEROES} from './hero-list';
 import {WeaponNames} from './weapon-names';
 import {WEAPONS} from './weapon-names';
 import {Weapon} from './weapon';

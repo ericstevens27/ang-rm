@@ -88,7 +88,7 @@ button:disabled {
 }
 .left {
   float: left;
-  width: 20em;
+  width: 30em;
 }
 
 .right {
@@ -197,4 +197,14 @@ button:disabled {
   visibility:hidden;
   height:0;
   font-size:0;
+}
+
+table {
+  width: 100%;
+}
+th.button {
+  width: 25%
+}
+th.character {
+  width: 50%; /* Not necessary, since only 70% width remains */
 }

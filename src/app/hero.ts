@@ -14,12 +14,12 @@ export class heroStatistics {
   value: number;
   bonusTotal: number;
   bonusStat: number;
-  BonusRacial: number;
+  bonusRacial: number;
 }
 
 export class heroSkills {
   name: string;
-  bonus: number;
+  value: number;
   stats: string;
   rank: number;
 }

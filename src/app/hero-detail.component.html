@@ -2,22 +2,50 @@
 <div class="left">
   <h2>My Heroes</h2>
   <div>
-    <ul class="heroes">
+    <label style="width: 10em; padding-top: 0; font-size: 1em">Debug?  <input style="height: 1em; padding-top: 0; font-size: 1em" type="checkbox" [(ngModel)]="debug"/>
+    </label>
+  </div>
+  <div>
+    <table>
+      <thead>
+      <th class="character">Character</th>
+      <th class="button"></th>
+      <th class="button"> </th>
+      </thead>
+      <tbody >
+      <tr *ngFor="let hero of heroes" [class.selected]="hero === selectedHero">
+        <td >{{hero.name}}: <b>{{hero.character}}</b></td>
+        <td ><button style="margin-top:0" (click)="onSelectStats(hero)">Stats</button></td>
+        <td><button style="margin-top:0"  (click)="onSelectCombat(hero)">Combat</button></td>
+      </tr>
+      </tbody>
+    </table>
+<!--    <ul class="heroes">
       <li *ngFor="let hero of heroes"
           [class.selected]="hero === selectedHero"
           (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span> {{hero.name}}: <b>{{hero.character}}</b>
+        <button (click)="toggleShowStat()">Show Stats?</button>
+      </li>
+    </ul>-->
+  </div>
+
+<!--  <div class="heroes">
+    <button (click)="toggleShowStat()">Show Stats?</button>
+    {{showStats}}
+  </div>-->
+  <div *ngIf="selectedHero && showStats" class="left">
+    <ul class="heroes">
+      <li *ngFor="let s of selectedHero.stats">
+        <span class="badge">{{s.name}}</span>  Value: <b>{{s.value}}</b>  Bonus: <b>{{s.bonusTotal}}</b>
       </li>
     </ul>
+
   </div>
-  <div>
-    <label style="width: 10em; padding-top: 0; font-size: 1em">Debug?  <input style="height: 1em; padding-top: 0; font-size: 1em" type="checkbox" [(ngModel)]="debug"/>
-    </label>
-     </div>
 </div>
 
 
-<div *ngIf="selectedHero" class="right">
+<div *ngIf="selectedHero && showCombat" class="left">
   <h2>{{selectedHero.name}} Weapons</h2>
   <div>
     <ul class="weapons">
