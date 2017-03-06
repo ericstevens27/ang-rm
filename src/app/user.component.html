@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<h2>User Details</h2>
+
+  <div *ngIf="selectedHero" class="left">
+    <ul class="heroes">
+      <li *ngFor="let s of selectedHero.stats">
+        <span class="badge">{{s.name}}</span>  Value: <b>{{s.value}}</b>  Bonus: <b>{{s.bonusTotal}}</b>
+      </li>
+    </ul>
+
+  </div>
+
+
+
+
+
+
+
+

@@ -1,42 +1,7 @@
 <h1>{{title}}</h1>
-<div class="left">
-  <h2>My Heroes</h2>
-  <div>
-    <label style="width: 10em; padding-top: 0; font-size: 1em">Debug?  <input style="height: 1em; padding-top: 0; font-size: 1em" type="checkbox" [(ngModel)]="debug"/>
-    </label>
-  </div>
-  <div>
-    <table>
-      <thead>
-      <th class="character">Character</th>
-      <th class="button"></th>
-      <th class="button"> </th>
-      </thead>
-      <tbody >
-      <tr *ngFor="let hero of heroes" [class.selected]="hero === selectedHero">
-        <td >{{hero.name}}: <b>{{hero.character}}</b></td>
-        <td ><button style="margin-top:0" (click)="onSelectStats(hero)">Stats</button></td>
-        <td><button style="margin-top:0"  (click)="onSelectCombat(hero)">Combat</button></td>
-      </tr>
-      </tbody>
-    </table>
-    <router-outlet></router-outlet>
-  </div>
+<h2>Combat Screen</h2>
 
-<!--
-
-  <div *ngIf="selectedHero && showStats" class="left">
-    <ul class="heroes">
-      <li *ngFor="let s of selectedHero.stats">
-        <span class="badge">{{s.name}}</span>  Value: <b>{{s.value}}</b>  Bonus: <b>{{s.bonusTotal}}</b>
-      </li>
-    </ul>
-
-  </div>
-</div>
-
-
-<div *ngIf="selectedHero && showCombat" class="left">
+<div *ngIf="selectedHero" class="left">
   <h2>{{selectedHero.name}} Weapons</h2>
   <div>
     <ul class="weapons">
@@ -47,9 +12,9 @@
       </li>
     </ul>
   </div>
-  <div *ngIf="debug && heroWeapon">
+  <div *ngIf="  heroWeapon">
     <p>Working with {{heroWeapon.name}} with:<br>
-    <i class="small">Maximum: {{heroWeapon.maximum}} Fumble {{heroWeapon.fumble}} Table: {{heroWeapon.table}}</i><br>
+      <i class="small">Maximum: {{heroWeapon.maximum}} Fumble {{heroWeapon.fumble}} Table: {{heroWeapon.table}}</i><br>
     <p class="small">Base: {{heroWeapon.base}} Item Bonus: {{heroWeapon.itemBonus}}</p>
   </div>
   <div *ngIf="heroWeapon">
@@ -208,5 +173,4 @@
 </div>
 
 
--->
 

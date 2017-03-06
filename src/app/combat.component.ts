@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute, Params }   from '@angular/router';
+import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
@@ -30,16 +31,15 @@ const critType: criticalTypes[] = [
 
 @Component({
   moduleId: module.id,
-  selector: 'my-app',
-  templateUrl: './hero-detail.component.html',
+  selector: 'heroCombat',
+  templateUrl: './combat.component.html',
   styleUrls: ['./app.component.css', './hero-detail.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class CombatComponent implements OnInit {
 
   // constructor(private _dataService: DataService, private weaponService: WeaponService) {}
   constructor(private _dataService: DataService,
               private route: ActivatedRoute,
-              private router: Router,
               private location: Location
   ) {}
 
@@ -75,18 +75,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.selectedHero = hero;
     this.showCombat =true;
     this.showStats = false;
-    this._dataService.myHero = this.selectedHero;
-    console.log("App on select combat", this.selectedHero, this._dataService.myHero)
-    this.router.navigateByUrl('combat');
   }
   onSelectStats(hero: Hero): void {
     this.selectedHero = hero;
     this.showStats =true;
     this.showCombat = false;
-    this._dataService.myHero = this.selectedHero;
-    console.log("App on select stats", this.selectedHero, this._dataService.myHero)
-    this.router.navigateByUrl('stats');
-}
+  }
   onSelectWeapon(wt: heroWeapons): void {
     this.heroWeapon = wt;
     this.loadWeaponTable(wt.table);
@@ -98,12 +92,12 @@ export class AppComponent implements OnInit, OnDestroy {
   loadHeroes(): void {
     this._dataService.getHeroes().subscribe(data => this.heroes = data);
   }
-/*  getWeapons(): void {
-    // debugger;
-      this.weaponService.getWeapons().then(weapons => this.weapons);
-  }*/
+  /*  getWeapons(): void {
+   // debugger;
+   this.weaponService.getWeapons().then(weapons => this.weapons);
+   }*/
   loadWeaponTable(name: string) {
-      return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
+    return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }
 
   onKey(event: any) { // without type info
@@ -116,12 +110,9 @@ export class AppComponent implements OnInit, OnDestroy {
     return this.critList.filter(critList => critList.id === id)[0].name;
   }
   ngOnInit(): void {
-    this.loadHeroes();
-    // this.getWeapons();
-    this.loadWeaponList();
-
+    this.selectedHero = this._dataService.myHero;
+    console.log("OnInit combat", this._dataService.myHero, this.selectedHero);
   }
-
   calcAttackIndex () {
     this.attackIndex = this.offense - this.penalty - -this.advantage - -this.roll - this.enemyDefense;
     if (this.attackIndex < 0) {this.attackIndex = 0}
@@ -133,4 +124,5 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
 }
+
 

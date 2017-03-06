@@ -15,6 +15,8 @@ export class DataService {
   private baseURL='http://localhost:3010/';
   constructor(private http : Http){
   }
+  public myHero: Hero;
+
   getWeaponList() {
     return this.http.get(this.baseURL + 'weapon')
       .map((res:Response) => res.json());
