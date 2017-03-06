@@ -6,6 +6,7 @@ import { HttpModule }      from '@angular/http';
 import { AppComponent }  from './app.component';
 import { StatsComponent } from './stats.component';
 import { CombatComponent } from './combat.component';
+import { ListComponent } from './hero-detail.component';
 
 import { DataService } from './all.service';
 
@@ -23,7 +24,8 @@ import { AppRoutingModule }     from './app-routing.module';
   declarations: [
     AppComponent,
     StatsComponent,
-    CombatComponent
+    CombatComponent,
+    ListComponent
   ],
   providers: [
     DataService
