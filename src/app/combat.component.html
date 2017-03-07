@@ -1,8 +1,8 @@
-<h1>{{title}}</h1>
-<h2>Combat Screen</h2>
+
+<h2>Combat for {{selectedHero.name}}: {{selectedHero.character}}</h2>
 
 <div *ngIf="selectedHero" class="left">
-  <h2>{{selectedHero.name}} Weapons</h2>
+  <h2>{{selectedHero.character}} Weapons</h2>
   <div>
     <ul class="weapons">
       <li *ngFor="let w of selectedHero.weapons"

@@ -88,11 +88,19 @@ button:disabled {
 }
 .left {
   float: left;
-  width: 30em;
+  width: 25em;
+}
+.narrowLeft {
+  float: left;
+  width: 12em;
+}
+.wideLeft {
+  float: left;
+  width: 60em;
 }
 
 .right {
-  margin-left: 20em;
+  margin-left: 0em;
 }
 .selected {
   background-color: #CFD8DC !important;
@@ -198,13 +206,31 @@ button:disabled {
   height:0;
   font-size:0;
 }
-
 table {
   width: 100%;
 }
-th.button {
-  width: 25%
+
+table .button {
+  width: 25%;
 }
-th.character {
-  width: 50%; /* Not necessary, since only 70% width remains */
+
+table .character {
+  width: 50%;
+}
+
+table .small {
+  width: 10%;
+}
+
+table .verySmall {
+  width: 5%;
+}
+
+table .wide {
+  width: 30%;
+}
+
+.tableBorder {
+  border: 1px solid black;
+
 }
