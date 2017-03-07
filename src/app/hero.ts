@@ -41,7 +41,7 @@ export class Hero {
   race: string;
   profession: string;
   level: number;
-  hitPoints: number;
+  hitpoints: number;
   defenseBase: number;
   stats: heroStatistics[];
   skills: heroSkills[];

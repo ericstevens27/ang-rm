@@ -1,6 +1,15 @@
 
 <h2>Details for {{selectedHero.name}}: {{selectedHero.character}}</h2>
 
+<div *ngIf="selectedHero">
+  <h2>Character Summary:</h2>
+  Profession: {{selectedHero.profession}}<br>
+  Level: {{selectedHero.level}}<br>
+  Race: {{selectedHero.race}}<br>
+  Hit Points: {{selectedHero.hitpoints}}<br>
+  Defense Base: {{selectedHero.defenseBase}}
+</div>
+
   <div *ngIf="selectedHero" class="narrowLeft">
     <h2>Statistics:</h2>
     <table class="tableBorder">
