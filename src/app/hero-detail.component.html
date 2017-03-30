@@ -1,0 +1,24 @@
+
+<div class="left">
+  <h2>Character List</h2>
+
+  <div>
+    <table>
+      <thead>
+      <th class="character">Character</th>
+      <th class="button"></th>
+      <th class="button"> </th>
+      </thead>
+      <tbody >
+      <tr *ngFor="let hero of heroes" [class.selected]="hero === selectedHero">
+        <td >{{hero.name}}: <b>{{hero.character}}</b></td>
+        <td ><button style="margin-top:0" (click)="onSelectStats(hero)">Stats</button></td>
+        <td><button style="margin-top:0"  (click)="onSelectCombat(hero)">Combat</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>

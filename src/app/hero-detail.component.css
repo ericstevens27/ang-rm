@@ -1,0 +1,236 @@
+label {
+   display: inline-block;
+   width:5em;
+   margin: 0 0;
+   padding-left: 5px;
+ }
+.wideLabel {
+  display: inline-block;
+  width:12em;
+  margin: 0 0;
+  padding-left: 5px;
+}
+.atLabel {
+  display: inline-block;
+  width:6em;
+  font-size: 1em;
+  margin: 0 0;
+  padding-left: 5px;
+  padding-top: 1.5em;
+}
+.atSelect {
+  display: inline-block;
+  width:3em;
+  font-size: 1.2em;
+  margin: 0 0;
+  padding-left: 5px;
+  padding-top: 1.5em;
+}
+.veryWide {
+  width: 40em;
+}
+.colWide {
+  width: 7em;
+  padding-top: 10px;
+  font-size: 1.2em;
+}
+.wideLabelIndent {
+  display: inline-block;
+  width:12em;
+  margin: 0 0;
+  padding-left: 20px;
+}
+.Big {
+  font-size: 150%;
+  padding-top: .5rem
+}
+.small {
+  font-size: 80%;
+}
+.Red {
+  color: red;
+}
+.note {
+  display: inline-block;
+  margin: 0 0;
+  padding-left: 5px;
+  padding-top: 0;
+}
+.debug {
+  background: white;
+  width: 30em;
+  color: red;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+input {
+  height: 1.5em;
+  width:3em;
+  font-size: 1em;
+  padding-left: 0;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+.left {
+  float: left;
+  width: 25em;
+}
+.narrowLeft {
+  float: left;
+  width: 12em;
+}
+.wideLeft {
+  float: left;
+  width: 60em;
+}
+
+.right {
+  margin-left: 0em;
+}
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.heroes {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 17em;
+  color: black;
+}
+.heroes li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.heroes li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.heroes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.heroes .text {
+  position: relative;
+  top: -3px;
+}
+.heroes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.weapons {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 20em;
+  color: black;
+  font-size: 1em;
+}
+.weapons .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+.weapons li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.weapons li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.weapons li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.weapons .text {
+  position: relative;
+  top: -4px;
+}
+
+.hideoption {
+  display:none;
+  visibility:hidden;
+  height:0;
+  font-size:0;
+}
+table {
+  width: 100%;
+}
+
+table .button {
+  width: 25%;
+}
+
+table .character {
+  width: 50%;
+}
+
+table .small {
+  width: 10%;
+}
+
+table .verySmall {
+  width: 5%;
+}
+
+table .wide {
+  width: 30%;
+}
+
+.tableBorder {
+  border: 1px solid black;
+
+}
