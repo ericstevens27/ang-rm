@@ -22,10 +22,17 @@
     "@angular/router": "^3.4.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.22",
     "@types/node": "^6.0.68",
+    "body-parser": "^1.17.1",
     "bootstrap": "^4.0.0-alpha.5",
+    "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
+    "debug": "^2.6.3",
+    "express": "^4.15.2",
     "font-awesome": "^4.7.0",
+    "morgan": "^1.8.1",
+    "pug": "^2.0.0-beta11",
     "rxjs": "^5.1.0",
+    "serve-favicon": "^2.4.2",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {

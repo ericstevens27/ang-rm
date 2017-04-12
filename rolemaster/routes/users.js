@@ -4,6 +4,6 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res) {
   console.log('getting user list');
-  res.sendfile('attack_tables/users.json' );
+  res.sendfile('rolemaster/attack_tables/users.json' );
 });
 module.exports = router;

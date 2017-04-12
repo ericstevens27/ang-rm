@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
   var weapon_id = req.params.id;
-  res.sendfile('attack_tables/' + weapon_id + '.json' );
+  res.sendfile('rolemaster/attack_tables/' + weapon_id + '.json' );
 });
 
 module.exports = router;
