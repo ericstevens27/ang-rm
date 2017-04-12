@@ -1,4 +1,3 @@
-/* SystemJS module definition */
-/*declare var module: {
+export class module {
   id: string;
-};*/
+}

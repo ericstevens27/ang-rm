@@ -9,7 +9,6 @@ import { Weapon } from './weapon';
 import { DataService } from './all.service';
 
 import {combatTable} from './combat-tables';
-// import { WeaponService } from './weapon.service';
 
 export class atNumbers {
   id: number;
@@ -30,7 +29,6 @@ const critType: criticalTypes[] = [
 ];
 
 @Component({
-  moduleId: module.id,
   selector: 'heroCombat',
   templateUrl: './combat.component.html',
   styleUrls: ['./app.component.css', './hero-detail.component.css']
@@ -92,10 +90,6 @@ export class CombatComponent implements OnInit {
   loadHeroes(): void {
     this._dataService.getHeroes().subscribe(data => this.heroes = data);
   }
-  /*  getWeapons(): void {
-   // debugger;
-   this.weaponService.getWeapons().then(weapons => this.weapons);
-   }*/
   loadWeaponTable(name: string) {
     return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }

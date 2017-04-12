@@ -1,6 +1,7 @@
 html, body, form, fieldset, table, tr, td, img, p {
   margin: 0;
   padding: 0;
+  padding-left: 10px;
   font: 100%/150% Arial,helvetica,sans-serif;
 }
 

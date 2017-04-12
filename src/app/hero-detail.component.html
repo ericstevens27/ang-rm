@@ -12,8 +12,8 @@
       <tbody >
       <tr *ngFor="let hero of heroes" [class.selected]="hero === selectedHero">
         <td >{{hero.name}}: <b>{{hero.character}}</b></td>
-        <td ><button style="margin-top:0" (click)="onSelectStats(hero)">Stats</button></td>
-        <td><button style="margin-top:0"  (click)="onSelectCombat(hero)">Combat</button></td>
+        <td ><button class="btn btn-sm btn-outline-primary" (click)="onSelectStats(hero)">Stats</button></td>
+        <td><button class="btn btn-sm btn-outline-primary"  (click)="onSelectCombat(hero)">Combat</button></td>
       </tr>
       </tbody>
     </table>

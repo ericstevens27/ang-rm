@@ -8,10 +8,8 @@ import { Weapon } from './weapon';
 import { DataService } from './all.service';
 
 import {combatTable} from './combat-tables';
-// import { WeaponService } from './weapon.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-heroDetails',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./app.component.css', './hero-detail.component.css']
@@ -78,10 +76,7 @@ export class ListComponent implements OnInit {
   loadHeroes(): void {
     this._dataService.getHeroes().subscribe(data => this.heroes = data);
   }
-  /*  getWeapons(): void {
-   // debugger;
-   this.weaponService.getWeapons().then(weapons => this.weapons);
-   }*/
+
   loadWeaponTable(name: string) {
     return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }

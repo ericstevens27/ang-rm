@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/list" routerLinkActive="active" class="btn btn-sm btn-outline-primary">List of Characters</a>
+</nav>
+<div>
+  <label style="width: 10em; padding-top: 0; font-size: 1em">Debug?  <input style="height: 1em; padding-top: 0; font-size: 1em" type="checkbox" [(ngModel)]="debug"/>
+  </label>
+</div>
+<router-outlet></router-outlet>

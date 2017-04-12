@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { Hero, heroWeapons, heroStatistics, items, heroSkills } from './hero';
 import { DataService } from './all.service';
 
 import {combatTable} from './combat-tables';
-// import { WeaponService } from './weapon.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'heroStats',
   templateUrl: './user.component.html',
   styleUrls: ['./app.component.css', './hero-detail.component.css']
@@ -43,10 +42,6 @@ export class StatsComponent implements OnInit {
   loadHeroes(): void {
     this._dataService.getHeroes().subscribe(data => this.heroes = data);
   }
-  /*  getWeapons(): void {
-   // debugger;
-   this.weaponService.getWeapons().then(weapons => this.weapons);
-   }*/
   loadWeaponTable(name: string) {
     return this._dataService.getWeaponTable(name).subscribe(data => this.weapTable = data);
   }

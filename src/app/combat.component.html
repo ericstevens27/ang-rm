@@ -1,176 +1,185 @@
-
 <h2>Combat for {{selectedHero.name}}: {{selectedHero.character}}</h2>
+<ngb-tabset #tabCombat="ngbTabset">
+  <ngb-tab title="Select Weapon" id="weapon">
+    <template ngbTabContent>
 
-<div *ngIf="selectedHero" class="left">
-  <h2>{{selectedHero.character}} Weapons</h2>
-  <div>
-    <ul class="weapons">
-      <li *ngFor="let w of selectedHero.weapons"
-          [class.selected]="w === heroWeapon"
-          (click)="onSelectWeapon(w)">
-        <span class="badge">{{w.base}} + {{w.itemBonus}}</span> <b>{{w.name}}</b>
-      </li>
-    </ul>
-  </div>
-  <div *ngIf="  heroWeapon">
-    <p>Working with {{heroWeapon.name}} with:<br>
-      <i class="small">Maximum: {{heroWeapon.maximum}} Fumble {{heroWeapon.fumble}} Table: {{heroWeapon.table}}</i><br>
-    <p class="small">Base: {{heroWeapon.base}} Item Bonus: {{heroWeapon.itemBonus}}</p>
-  </div>
-  <div *ngIf="heroWeapon">
-    <table>
-      <tr>
-        <td>
-          <label class="colWide">% to Offense: </label>
-        </td>
-        <td>
-          <label class="colWide">Base: </label>
-        </td>
-        <td>
-          <label class="colWide">Offense: </label>
-        </td>
-        <td>
-          <label class="colWide">Defense: </label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          `<input type="number" (blur)="onKey($event)" [(ngModel)]="odSplit"/>`
-        </td>
-        <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="heroWeapon.base"/>
-        </td>
-        <td>
-          <p>
-            {{offense}}
-          </p>
-        </td>
-        <td>
-          <p>
-            {{defense}}
-          </p></td>
-      </tr>
-      <tr>
+      <h2>{{selectedHero.character}} Weapons</h2>
+      <div>
+        <ul class="weapons">
+          <li *ngFor="let w of selectedHero.weapons"
+              [class.selected]="w === heroWeapon"
+              (click)="onSelectWeapon(w)">
+            <span class="badge">{{w.base}} + {{w.itemBonus}}</span> <b>{{w.name}}</b>
+          </li>
+        </ul>
+      </div>
+    </template>
+  </ngb-tab>
 
-        <td>
-          <label class="colWide">Penalties: </label>
-        </td>
-        <td>
-          <label class="colWide">Bonuses: </label>
-        </td>
-        <td>
-          <label class="colWide"></label>
-        </td>
-        <td>
+  <ngb-tab title="Combat" id="combat">
+    <template ngbTabContent>
+      <div *ngIf="  heroWeapon">
+        <p>Working with {{heroWeapon.name}} with:<br>
+          <i class="small">Maximum: {{heroWeapon.maximum}} Fumble {{heroWeapon.fumble}} Table:
+            {{heroWeapon.table}}</i><br>
+        <p class="small">Base: {{heroWeapon.base}} Item Bonus: {{heroWeapon.itemBonus}}</p>
+      </div>
+      <div *ngIf="heroWeapon">
+        <table>
+          <tr>
+            <td>
+              <label class="colWide">% to Offense: </label>
+            </td>
+            <td>
+              <label class="colWide">Base: </label>
+            </td>
+            <td>
+              <label class="colWide">Offense: </label>
+            </td>
+            <td>
+              <label class="colWide">Defense: </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" (blur)="onKey($event)" [(ngModel)]="odSplit"/>
+            </td>
+            <td>
+              <input type="number" (blur)="onKey($event)" [(ngModel)]="heroWeapon.base"/>
+            </td>
+            <td>
+              <p>
+                {{offense}}
+              </p>
+            </td>
+            <td>
+              <p>
+                {{defense}}
+              </p></td>
+          </tr>
+          <tr>
 
-        </td>
-      </tr>
-      <tr>
+            <td>
+              <label class="colWide">Penalties: </label>
+            </td>
+            <td>
+              <label class="colWide">Bonuses: </label>
+            </td>
+            <td>
+              <label class="colWide"></label>
+            </td>
+            <td>
 
-        <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="penalty"/>
-        </td>
-        <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="advantage"/>
-        </td>
-        <td>
-        </td>
-        <td>
+            </td>
+          </tr>
+          <tr>
 
-        </td>
-      </tr>
-      <tr>
+            <td>
+              <input type="number" (blur)="onKey($event)" [(ngModel)]="penalty"/>
+            </td>
+            <td>
+              <input type="number" (blur)="onKey($event)" [(ngModel)]="advantage"/>
+            </td>
+            <td>
+            </td>
+            <td>
 
-        <td>
-          <label class="colWide">Actual Roll: </label>
-        </td>
-        <td>
-          <label class="colWide atLabel">Attack Table:</label>
-        </td>
-        <td>
-          <label class="colWide">Opponent Defense:</label>
-        </td>
-        <td>
-          <label class="colWide"> </label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="roll"/>
-        </td>
-        <td>
+            </td>
+          </tr>
+          <tr>
 
-          <div *ngIf="heroWeapon">
+            <td>
+              <label class="colWide">Actual Roll: </label>
+            </td>
+            <td>
+              <label class="colWide atLabel">Attack Table:</label>
+            </td>
+            <td>
+              <label class="colWide">Opponent Defense:</label>
+            </td>
+            <td>
+              <label class="colWide"> </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" (blur)="onKey($event)" [(ngModel)]="roll"/>
+            </td>
+            <td>
 
-            <select class="atSelect" [(ngModel)]="attackType">
-              <option *ngFor="let at of atList" value={{at.id}}>
-                {{at.id}}
-              </option>
-            </select>
-          </div>
-        </td>
-        <td>
-          <input type="number" (blur)="onKey($event)" [(ngModel)]="enemyDefense"/>
-        </td>
-        <td>
+              <div *ngIf="heroWeapon">
 
-        </td>
-      </tr>
-    </table>
-  </div>
+                <select class="atSelect" [(ngModel)]="attackType">
+                  <option *ngFor="let at of atList" value={{at.id}}>
+                    {{at.id}}
+                  </option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <input type="number" (blur)="onKey($event)" [(ngModel)]="enemyDefense"/>
+            </td>
+            <td>
 
-  <div class="wideLabel" *ngIf="heroWeapon">
-    <p class="Big veryWide">The attack result is: <b>{{attackIndex}}</b></p>
-    <p *ngIf="debug" class="wideLabel small veryWide">Reading results from
-      <i>{{heroWeapon.table}}[{{attackIndex}}][{{attackType}}]</i></p>
-    <div *ngIf="this.offense - this.penalty - -this.advantage - -this.roll - this.enemyDefense > heroWeapon.maximum">
-      <p class="wideLabelIndent small" style="width: 20em">Weapon Max reached!</p>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    </div>
-  </div>
+      <div class="wideLabel" *ngIf="heroWeapon">
+        <p class="Big veryWide">The attack result is: <b>{{attackIndex}}</b></p>
+        <p *ngIf="debug" class="wideLabel small veryWide">Reading results from
+          <i>{{heroWeapon.table}}[{{attackIndex}}][{{attackType}}]</i></p>
+        <div
+          *ngIf="this.offense - this.penalty - -this.advantage - -this.roll - this.enemyDefense > heroWeapon.maximum">
+          <p class="wideLabelIndent small" style="width: 20em">Weapon Max reached!</p>
 
-
-  <div *ngIf="weapTable">
-    <p class="Big veryWide">The combat results are: </p>
-    <div>
-      <table>
-        <tr>
-          <td>
-            <div *ngIf="roll <= heroWeapon.fumble">
-              <p class="wideLabelIndent Big"><b class="Red">FUMBLE!</b></p><br>
-              <p class="wideLabelIndent small" style="width: 20em">Fumble on unmodifed roll of <i><b>{{heroWeapon.fumble}}</b></i>
-                or less</p>
-
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p class="wideLabelIndent Big">Hits: <b>{{weapTable[attackIndex][attackType].hits}}</b></p><br>
-            <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][attackType].hits == 0"> Miss!</p>
-            <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][attackType].hits > 0"> Hit!</p>
-          </td>
-
-        </tr>
-        <tr>
-          <td>
-            <p class="wideLabelIndent Big">Critical Level:
-              <b>{{weapTable[attackIndex][attackType].critical_level}}</b></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p class="wideLabelIndent Big">Critical Type:
-              <b>{{weapTable[attackIndex][attackType].critical_type}}</b></p><br>
-            <p class="wideLabelIndent Red" *ngIf="'' != weapTable[attackIndex][attackType].critical_type"><b>{{getCritType(weapTable[attackIndex][attackType].critical_type)}}</b>
-            </p>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-</div>
+        </div>
+      </div>
 
 
+      <div *ngIf="weapTable">
+        <p class="Big veryWide">The combat results are: </p>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <div *ngIf="roll <= heroWeapon.fumble">
+                  <p class="wideLabelIndent Big"><b class="Red">FUMBLE!</b></p><br>
+                  <p class="wideLabelIndent small" style="width: 20em">Fumble on unmodifed roll of <i><b>{{heroWeapon.fumble}}</b></i>
+                    or less</p>
+
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="wideLabelIndent Big">Hits: <b>{{weapTable[attackIndex][attackType].hits}}</b></p><br>
+                <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][attackType].hits == 0"> Miss!</p>
+                <p class="wideLabelIndent Red" *ngIf="weapTable[attackIndex][attackType].hits > 0"> Hit!</p>
+              </td>
+
+            </tr>
+            <tr>
+              <td>
+                <p class="wideLabelIndent Big">Critical Level:
+                  <b>{{weapTable[attackIndex][attackType].critical_level}}</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="wideLabelIndent Big">Critical Type:
+                  <b>{{weapTable[attackIndex][attackType].critical_type}}</b></p><br>
+                <p class="wideLabelIndent Red" *ngIf="'' != weapTable[attackIndex][attackType].critical_type"><b>{{getCritType(weapTable[attackIndex][attackType].critical_type)}}</b>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
+    </template>
+  </ngb-tab>
+</ngb-tabset>
 
