@@ -24,6 +24,10 @@ exports.config = {
       project: 'e2e/tsconfig.e2e.json'
     });
   },
+  "styles": [
+    "styles.css",
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+  ],
   onPrepare() {
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
   }
